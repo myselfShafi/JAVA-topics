@@ -1,9 +1,9 @@
-package com.mortgage;
+package Mortgage.src.com.mortgage;
 
 import java.text.NumberFormat;
 import java.util.Scanner;
 
-public class Mortgage {
+public class Main {
     private static final String RESET = "\u001B[0m";
     private static final String RED = "\u001B[31m";
     private static final String GREEN = "\u001B[32m";
