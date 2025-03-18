@@ -1,4 +1,4 @@
-package Mortgage.src.com.mortgage;
+package com.mortgage;
 
 import java.text.NumberFormat;
 import java.util.Scanner;
