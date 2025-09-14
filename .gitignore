@@ -12,3 +12,9 @@ out/
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
+
+# Ignore compiled Java class files
+*.class
+
+# Ignore build directories
+/target/
