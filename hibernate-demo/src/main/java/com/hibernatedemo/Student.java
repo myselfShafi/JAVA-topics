@@ -14,7 +14,10 @@ public class Student {
     private int age;
 
     @Transient                              // ignores the below field; doesn’t store it in the database
-    private String address;
+    private String gender;
+
+    @Embedded
+    private Address address;
 
     public void setRollNo(int rollNo) {
         this.rollNo = rollNo;
@@ -28,8 +31,12 @@ public class Student {
         this.age = age;
     }
 
-    public String setAddress() {
-        return address;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public int getRollNo() {
@@ -44,8 +51,12 @@ public class Student {
         return age;
     }
 
-    public void getAddress(String address) {
-        this.address = address;
+    public String getGender() {
+        return gender;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 
     @Override

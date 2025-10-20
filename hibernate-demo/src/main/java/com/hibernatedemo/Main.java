@@ -9,6 +9,7 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     public static void main(String[] args) {
 
+        Address s1Addr = new Address();
         Student s1 = new Student();
 
         Configuration cfg = new Configuration();
@@ -19,11 +20,18 @@ public class Main {
                 Session session = sf.openSession();
                 ) {
             Transaction tx = session.beginTransaction();
-//            // Create Ops
-//            s1.setRollNo(2);
-//            s1.setName("Basheer");
-//            s1.setAge(28);
-//            session.persist(s1);
+            // Create Ops
+            s1Addr.setAddressLine("Patrika Nagar");
+            s1Addr.setCity("Hyderabad");
+            s1Addr.setState("Telangana");
+            s1Addr.setCountry("India");
+
+            s1.setRollNo(3);
+            s1.setName("Venkat");
+            s1.setAge(23);
+            s1.setAddress(s1Addr);
+
+            session.persist(s1);
 
 //            // Update/Upsert Ops
 //            Student s2 = new Student();
@@ -32,16 +40,14 @@ public class Main {
 //            s2.setAge(24);
 //            session.merge(s2); // works as upsertion
 
-            // Delete Ops
-            Student s3 = session.find(Student.class, 3); // fetches the obj
-            session.remove(s3); // pass the fetched obj for deletion
+//            // Delete Ops
+//            Student s3 = session.find(Student.class, 3); // fetches the obj
+//            session.remove(s3); // pass the fetched obj for deletion
 
             tx.commit();
 
             // Read Ops
             System.out.println(session.find(Student.class, 1));
-
-
         } catch (HibernateException e) {
             throw new RuntimeException(e);
         }
