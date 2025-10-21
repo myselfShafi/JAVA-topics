@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         Address s1Addr = new Address();
+        ReportCard s1Report = new ReportCard();
         Student s1 = new Student();
 
         Configuration cfg = new Configuration();
@@ -26,11 +27,19 @@ public class Main {
             s1Addr.setState("Telangana");
             s1Addr.setCountry("India");
 
+            s1Report.setReportId(1);
+            s1Report.setGpa(9.8);
+            s1Report.setGradeLevel("A");
+            s1Report.setRemark("Very Good");
+            s1Report.setStudent(s1);
+
             s1.setRollNo(3);
             s1.setName("Venkat");
             s1.setAge(23);
             s1.setAddress(s1Addr);
+            s1.setGradeReport(s1Report);
 
+            session.persist(s1Report);
             session.persist(s1);
 
 //            // Update/Upsert Ops

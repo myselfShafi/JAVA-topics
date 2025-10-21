@@ -19,6 +19,13 @@ public class Student {
     @Embedded
     private Address address;
 
+    @OneToOne(mappedBy = "student")
+    private ReportCard GradeReport;
+
+    public ReportCard getGradeReport() { return GradeReport; }
+
+    public void setGradeReport(ReportCard gradeReport) { GradeReport = gradeReport; }
+
     public void setRollNo(int rollNo) {
         this.rollNo = rollNo;
     }
@@ -39,17 +46,11 @@ public class Student {
         this.address = address;
     }
 
-    public int getRollNo() {
-        return rollNo;
-    }
+    public int getRollNo() { return rollNo; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public int getAge() {
-        return age;
-    }
+    public int getAge() { return age; }
 
     public String getGender() {
         return gender;

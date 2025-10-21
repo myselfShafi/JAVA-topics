@@ -5,10 +5,12 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">0000</property>
         
-        <property name="hibernate.hbm2ddl.auto">update</property>
+<!--        <property name="hibernate.hbm2ddl.auto">update</property>-->
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
         <mapping class="com.hibernatedemo.Student"/>
+        <mapping class="com.hibernatedemo.ReportCard"/>
     </session-factory>
 </hibernate-configuration>
