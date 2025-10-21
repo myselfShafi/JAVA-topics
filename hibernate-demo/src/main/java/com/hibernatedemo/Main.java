@@ -6,12 +6,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
         Address s1Addr = new Address();
         ReportCard s1Report = new ReportCard();
+        Department dept = new Department();
         Student s1 = new Student();
+        Student s2 = new Student();
 
         Configuration cfg = new Configuration();
         cfg.configure();
@@ -33,14 +37,27 @@ public class Main {
             s1Report.setRemark("Very Good");
             s1Report.setStudent(s1);
 
+            dept.setDeptId(1);
+            dept.setName("Engineering");
+            dept.setLocation("Vizag");
+            dept.setStudent(Arrays.asList(s1, s2));
+
             s1.setRollNo(3);
             s1.setName("Venkat");
             s1.setAge(23);
             s1.setAddress(s1Addr);
             s1.setGradeReport(s1Report);
+            s1.setDept(dept);
+
+            s2.setRollNo(2);
+            s2.setName("Murali");
+            s2.setAge(26);
+            s2.setDept(dept);
 
             session.persist(s1Report);
+            session.persist(dept);
             session.persist(s1);
+            session.persist(s2);
 
 //            // Update/Upsert Ops
 //            Student s2 = new Student();

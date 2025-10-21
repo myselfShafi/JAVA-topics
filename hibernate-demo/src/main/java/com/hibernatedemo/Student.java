@@ -22,9 +22,16 @@ public class Student {
     @OneToOne(mappedBy = "student")
     private ReportCard GradeReport;
 
+    @ManyToOne
+    private Department dept;
+
     public ReportCard getGradeReport() { return GradeReport; }
 
     public void setGradeReport(ReportCard gradeReport) { GradeReport = gradeReport; }
+
+    public Department getDept() { return dept; }
+
+    public void setDept(Department dept) { this.dept = dept; }
 
     public void setRollNo(int rollNo) {
         this.rollNo = rollNo;
