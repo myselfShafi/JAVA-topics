@@ -13,5 +13,6 @@
         <mapping class="com.hibernatedemo.Student"/>
         <mapping class="com.hibernatedemo.ReportCard"/>
         <mapping class="com.hibernatedemo.Department"/>
+        <mapping class="com.hibernatedemo.Skill"/>
     </session-factory>
 </hibernate-configuration>

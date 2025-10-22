@@ -2,6 +2,9 @@ package com.hibernatedemo;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity                                     // tells Hibernate: “this class should be saved in a db table”
 @Table(name = "student_collection")         // this will rename the db table_name to specified name
 public class Student {
@@ -25,6 +28,9 @@ public class Student {
     @ManyToOne
     private Department dept;
 
+    @ManyToMany
+    private Set<Skill> skills = new HashSet<>();
+
     public ReportCard getGradeReport() { return GradeReport; }
 
     public void setGradeReport(ReportCard gradeReport) { GradeReport = gradeReport; }
@@ -32,6 +38,10 @@ public class Student {
     public Department getDept() { return dept; }
 
     public void setDept(Department dept) { this.dept = dept; }
+
+    public Set<Skill> getSkills() { return skills; }
+
+    public void setSkills(Set<Skill> skills) { this.skills = skills; }
 
     public void setRollNo(int rollNo) {
         this.rollNo = rollNo;
