@@ -35,13 +35,11 @@ public class Main {
             s1Addr.setState("Telangana");
             s1Addr.setCountry("India");
 
-            s1Report.setReportId(1);
             s1Report.setGpa(9.8);
             s1Report.setGradeLevel("A");
             s1Report.setRemark("Very Good");
             s1Report.setStudent(s1);
 
-            dept.setDeptId(1);
             dept.setName("Engineering");
             dept.setLocation("Vizag");
             dept.setStudent(Arrays.asList(s1, s2));
@@ -54,7 +52,6 @@ public class Main {
             s2Skill.setCategory("Personal Trait");
             s2Skill.setStudents(Set.of(s1, s2));
 
-            s1.setRollNo(3);
             s1.setName("Venkat");
             s1.setAge(23);
             s1.setAddress(s1Addr);
@@ -62,13 +59,11 @@ public class Main {
             s1.setDept(dept);
             s1.setSkills(Set.of(s2Skill));
 
-            s2.setRollNo(2);
             s2.setName("Murali");
             s2.setAge(26);
             s2.setDept(dept);
             s2.setSkills(Set.of(s1Skill, s2Skill));
 
-            s3.setRollNo(1);
             s3.setName("Shafi");
             s3.setAge(28);
             s3.setDept(dept);

@@ -6,7 +6,8 @@ import jakarta.persistence.*;
 public class ReportCard {
 
     @Id
-    private int reportId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @OneToOne
     private Student student;
@@ -14,12 +15,12 @@ public class ReportCard {
     private String gradeLevel;
     private String remark;
 
-    public int getReportId() {
-        return reportId;
+    public int getId() {
+        return id;
     }
 
-    public void setReportId(int reportId) {
-        this.reportId = reportId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Student getStudent() {

@@ -10,6 +10,7 @@ import java.util.Set;
 public class Student {
 
     @Id                                     // primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int rollNo;
 
     @Column(name = "student_name")          // this will rename the db table column_name to specified name

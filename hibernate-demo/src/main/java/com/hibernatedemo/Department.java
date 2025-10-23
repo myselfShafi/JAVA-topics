@@ -8,19 +8,20 @@ import java.util.List;
 public class Department {
 
     @Id
-    private int deptId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @OneToMany
     private List<Student> student;
     private String name;
     private String location;
 
-    public int getDeptId() {
-        return deptId;
+    public int getId() {
+        return id;
     }
 
-    public void setDeptId(int deptId) {
-        this.deptId = deptId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<Student> getStudent() {
