@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Entity                                     // tells Hibernate: “this class should be saved in a db table”
 @Table(name = "student_collection")         // this will rename the db table_name to specified name
+@NamedQuery(name = "minors", query = "from Student where age < :minAge")
 public class Student {
 
     @Id                                     // primary key

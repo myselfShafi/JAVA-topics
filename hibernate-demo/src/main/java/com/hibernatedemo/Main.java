@@ -5,13 +5,20 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+//        mappings();
+        hqlQueries();
+    }
 
+    public static void mappings() {
         Address s1Addr = new Address();
         ReportCard s1Report = new ReportCard();
         Department dept = new Department();
@@ -27,7 +34,7 @@ public class Main {
         try (
                 SessionFactory sf = cfg.buildSessionFactory();
                 Session session = sf.openSession();
-                ) {
+        ) {
             Transaction tx = session.beginTransaction();
             // Create Ops
             s1Addr.setAddressLine("Patrika Nagar");
@@ -92,6 +99,36 @@ public class Main {
 
             // Read Ops
             System.out.println(session.find(Student.class, 1));
+        } catch (HibernateException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void hqlQueries() {
+        Configuration cfg = new Configuration();
+        cfg.configure();
+
+        try (
+                SessionFactory sf = cfg.buildSessionFactory();
+                Session session = sf.openSession();
+        ) {
+            // HQL - Read Ops
+            Query<Student> q1 = session.createQuery("from Student where name = 'Shafi'", Student.class);
+            Query<Student> q2 = session.createNamedQuery("minors", Student.class);
+            q2.setParameter("minAge",25);
+
+            Query<Object[]> q3 = session.createQuery("select rollNo, name from Student", Object[].class);
+
+            List<Student> students = q1.getResultList();
+            List<Student> minors = q2.getResultList();
+            List<Object[]> partialInfo = q3.getResultList();
+
+            System.out.println(students);
+            System.out.println(minors);
+
+            for (Object[] data: partialInfo) {
+                System.out.println((int) data[0] + " " + (String) data[1]);
+            }
         } catch (HibernateException e) {
             throw new RuntimeException(e);
         }
